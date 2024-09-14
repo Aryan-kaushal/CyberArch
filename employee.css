@@ -1,0 +1,394 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #1b1b1c;
+  color: white;
+}
+
+.imgs {
+  height: 120px;
+  width: 120px;
+  border-radius: 20px;
+}
+
+/* Top Image Background */
+.top_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Position behind other content */
+}
+
+.top_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the area */
+}
+
+/* Container Styling */
+.container {
+  display: flex;
+  transition: margin-left 0.3s;
+}
+
+/* Navigation Styling */
+nav {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  background-color: #000000;
+  color: #eee;
+  transition: transform 0.3s;
+}
+
+nav.hidden {
+  transform: translateX(-100%);
+}
+
+.nav-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: none;
+  cursor: pointer;
+}
+
+.nav-toggle i {
+  font-size: 24px;
+  color: #fff;
+}
+
+.logo {
+  text-align: center;
+  display: flex;
+  margin: 10px 0 0 10px;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.logo span {
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+a {
+  position: relative;
+  color: rgb(85, 83, 83);
+  font-size: 14px;
+  display: table;
+  width: 280px;
+  padding: 10px;
+}
+
+nav .fas {
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 14px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-item {
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+  color: whitesmoke;
+}
+
+a:hover {
+  background: #ed2020;
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+}
+
+/* Main Section Styling */
+.main {
+  position: relative;
+  padding: 20px;
+  width: calc(100% - 280px); /* Adjust for the navigation width */
+  color: white;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+  transition: width 0.3s;
+}
+
+/* Main Top Section */
+.main-top {
+  display: flex;
+  width: 100%;
+}
+
+.main-top i {
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+
+/* Skills Section */
+.main-skills {
+  display: flex;
+  flex-wrap: wrap; /* Wrap cards to new rows */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.main-skills .card {
+  flex: 1 1 calc(25% - 20px); /* Adjust based on available space and margins */
+  margin: 10px;
+  background: rgba(118, 60, 60, 0.5); /* Translucent black */
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.main-skills .card h3 {
+  margin: 10px;
+  text-transform: capitalize;
+}
+
+.main-skills .card p {
+  font-size: 12px;
+}
+
+.main-skills .card button {
+  background: rgb(0, 0, 0);
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.main-skills .card button:hover {
+  background: rgba(223, 70, 15, 0.856);
+  box-shadow: black;
+}
+
+.main-skills .card i {
+  font-size: 22px;
+  padding: 10px;
+}
+
+/* Courses Section */
+.main-course {
+  margin-top: 12vh;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+
+.course-box {
+  width: 100%;
+  height: 300px;
+  padding: 10px 10px 30px 10px;
+  margin-top: 10px;
+  background: #000000;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.course-box ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap; /* Wrap list items to new rows */
+}
+
+.course-box ul li {
+  margin: 10px;
+  color: gray;
+  cursor: pointer;
+}
+
+.course-box ul .active {
+  color: grey;
+  border-bottom: 1px solid #000;
+}
+
+.course-box .course {
+  display: flex;
+  flex-wrap: wrap; /* Wrap course boxes to new rows */
+}
+
+.box {
+  flex: 1 1 calc(33% - 20px); /* Adjust based on available space and margins */
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background: rgb(241, 3, 3);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.box p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.box button {
+  background: #000;
+  color: #fff;
+  padding: 7px 10px;
+  border-radius: 10px;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+
+.box button:hover {
+  background: rgba(0, 0, 0, 0.842);
+}
+
+.box i {
+  font-size: 7rem;
+  float: right;
+  margin: -20px 20px 20px 0;
+}
+
+.html {
+  color: rgb(25, 94, 54);
+}
+
+.css {
+  color: rgb(104, 179, 35);
+}
+
+.js {
+  color: rgb(28, 98, 179);
+}
+
+
+
+/* Custom Red Theme for Evo Calendar */
+.evo-calendar.evo-calendar-theme-RedTheme {
+    --evo-color-primary: #ff4747; /* Primary red color */
+    --evo-color-secondary: #ffabab; /* Light red */
+    --evo-color-accent: #ff1a1a; /* Darker red for accents */
+    --evo-color-text: #ffffff; /* White text */
+}
+
+/* Header */
+.evo-calendar.evo-calendar-theme-RedTheme .calendar-header {
+    background-color: var(--evo-color-primary);
+    color: var(--evo-color-text);
+}
+
+.evo-calendar.evo-calendar-theme-RedTheme .calendar-header h1 {
+    color: var(--evo-color-text);
+}
+
+/* Sidebar */
+.evo-calendar.evo-calendar-theme-RedTheme .calendar-sidebar {
+    background-color: var(--evo-color-secondary);
+    color: var(--evo-color-text);
+}
+
+/* Events list */
+.evo-calendar.evo-calendar-theme-RedTheme .event-container .event-header {
+    background-color: var(--evo-color-accent);
+    color: var(--evo-color-text);
+}
+
+.evo-calendar.evo-calendar-theme-RedTheme .event-container .event-list {
+    background-color: var(--evo-color-secondary);
+    color: var(--evo-color-text);
+}
+
+/* Days */
+.evo-calendar.evo-calendar-theme-RedTheme .calendar-body .day {
+    color: var(--evo-color-accent);
+}
+
+.evo-calendar.evo-calendar-theme-RedTheme .calendar-body .day.current-day {
+    background-color: var(--evo-color-primary);
+    color: var(--evo-color-text);
+}
+
+/* Today Highlight */
+.evo-calendar.evo-calendar-theme-RedTheme .calendar-body .day.today {
+    border-color: var(--evo-color-primary);
+    color: var(--evo-color-accent);
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .main {
+    width: calc(100% - 240px); /* Adjust for navigation width */
+  }
+
+  .main-skills .card {
+    flex: 1 1 calc(33% - 20px); /* Adjust card width */
+  }
+
+  .box {
+    flex: 1 1 calc(50% - 20px); /* Adjust box width */
+  }
+}
+
+@media (max-width: 992px) {
+  .main {
+    width: calc(100% - 200px); /* Adjust for navigation width */
+  }
+
+  .main-skills .card {
+    flex: 1 1 calc(50% - 20px); /* Adjust card width */
+  }
+
+  .box {
+    flex: 1 1 calc(100% - 20px); /* Adjust box width */
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    width: 100%;
+    height: auto;
+    transform: translateX(-100%); /* Hide navigation */
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .main-skills .card,
+  .box {
+    flex: 1 1 100%; /* Adjust card and box width */
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
