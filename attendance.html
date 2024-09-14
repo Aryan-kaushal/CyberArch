@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calendar</title>
+
+    <!-- Evo Calendar CSS for styling -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
+    <link rel="stylesheet" href="attendance.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Attendance Calendar</h1>
+        <!-- Evo Calendar -->
+        <div id="attendance-calendar"></div>
+
+        <!-- Attendance Percentage Display -->
+        <div class="attendance-percentage">
+            <h3>Attendance Percentage: <span id="attendance-percent">0%</span></h3>
+        </div>
+    </div>
+
+    <!-- Evo Calendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+    <!-- Custom JS -->
+    <script src="attendance.js"></script>
+</body>
+</html>

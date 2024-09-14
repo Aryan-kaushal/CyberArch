@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Job Application Form</h1>
+        <form id="application-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="education">Education:</label>
+                <input type="text" id="education" name="education" required>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <input type="text" id="skills" name="skills" required>
+            </div>
+            <div class="form-group">
+                <label for="job-applied-for">Job Applied For:</label>
+                <input type="text" id="job-applied-for" name="job-applied-for" required>
+            </div>
+            <div class="form-group">
+                <label for="certificate">Upload Certificate:</label>
+                <input type="file" id="certificate" name="certificate" required>
+            </div>
+            <div class="form-group">
+                <label for="marksheet">Upload Marksheet:</label>
+                <input type="file" id="marksheet" name="marksheet" required>
+            </div>
+            <div class="form-group">
+                <label for="resume">Upload Resume:</label>
+                <input type="file" id="resume" name="resume" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+</html>

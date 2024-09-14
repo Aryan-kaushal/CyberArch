@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.attendance-percentage {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+#attendance-calendar {
+    margin: 0 auto;
+    width: 100%;
+}
+
+#attendance-percent {
+    font-weight: bold;
+    color: green;
+}

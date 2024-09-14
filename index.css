@@ -1,0 +1,594 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Root Variables */
+:root {
+    --primary-color: #dd0707;
+    --secondary-color: #fff;
+    --background-color: rgba(0, 0, 0, 0.7);
+    --font-primary: 'Poppins', sans-serif, Arial, sans-serif;
+    --font-size-base: 16px;
+}
+
+/* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: var(--font-primary);
+}
+
+body {
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background-color);
+    z-index: 1000;
+}
+
+header nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 1rem;
+}
+
+header nav .logo {
+    width: 120px;
+}
+
+header nav .social-icons a i {
+    color: var(--secondary-color);
+    font-size: 20px;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+header nav .social-icons a i:hover {
+    transform: scale(1.3);
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    background: url(img/landing.jpg) center/cover no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    text-align: left;
+}
+
+.hero-section .hero-content h4 {
+    font-size: 4.2rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.hero-section .hero-content h1 {
+    color: var(--secondary-color);
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.hero-section .hero-content h1 span {
+    color: var(--primary-color);
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hero-section .hero-content p {
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+/* Button Styling */
+.cta-button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.cta-button {
+    width: 12rem;
+    height: auto;
+}
+
+.cta-button .circle-effect {
+    transition: all 300ms ease;
+    box-shadow: 0 0 5px 1px var(--primary-color);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: var(--primary-color);
+    border-radius: 1.625rem;
+}
+
+.cta-button .circle-effect .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: var(--secondary-color);
+}
+
+.cta-button .circle-effect .icon.arrow {
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+.cta-button .circle-effect .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid var(--secondary-color);
+    border-right: 0.125rem solid var(--secondary-color);
+    transform: rotate(45deg);
+}
+
+.cta-button .button-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cta-button:hover .circle-effect {
+    width: 100%;
+    box-shadow: 0 0 10px 2px var(--secondary-color);
+}
+
+.cta-button:hover .button-text {
+    transform: translate(-1.7rem, 0);
+}
+
+.cta-button:hover .circle-effect .icon.arrow {
+    background: var(--secondary-color);
+    transform: translate(8.7rem, 0);
+}
+
+.cta-button:active .circle-effect .icon.arrow {
+    transform: translate(9.5rem, 0);
+    transition: all 0.3s;
+}
+
+.cta-button:active .circle-effect {
+    transform: scale(0.9);
+    transition: all 0.3s;
+    box-shadow: 0 0 5px 0.5px var(--secondary-color);
+}
+
+.cta-button:hover .button-text {
+    color: var(--secondary-color);
+}
+
+.cta-button:active .button-text {
+    color: rgba(255, 255, 255, 0.459);
+}
+
+/* Loading Fade-Out */
+body.fade-out {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+/* From Uiverse.io by vinodjangid07 */ 
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(255, 65, 65);
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width 
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+ hover effect button's text 
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+ button click effect
+.Btn:active {
+  transform: translate(2px ,2px);
+}*/
+
+
+
+/* From Uiverse.io by vinodjangid07 
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+  }
+  
+  plus sign
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: white;
+  }
+  text
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  hover effect on button width
+  .Btn:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  hover effect button's text
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  button click effect
+  .Btn:active {
+    transform: translate(2px ,2px);
+  }*/
+
+
+
+
+
+
+  /* From Uiverse.io by mrhyddenn */ 
+.button {
+    display: flex;
+  }
+  
+  .box {
+    width: 35px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    transition: all .8s;
+    cursor: pointer;
+    position: relative;
+    background: rgb(242, 24, 24);
+    overflow: hidden;
+  }
+  
+  .box:before {
+    content: "W";
+    position: absolute;
+    top: 0;
+    background: #0f0f0f;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(100%);
+    transition: transform .4s;
+  }
+  
+  .box:nth-child(2)::before {
+    transform: translateY(-100%);
+    content: 'E';
+  }
+  
+  .box:nth-child(3)::before {
+    content: 'L';
+  }
+  
+  .box:nth-child(4)::before {
+    transform: translateY(-100%);
+    content: 'C';
+  }
+  
+  .box:nth-child(5)::before {
+      content: 'O';
+    }
+    .box:nth-child(6)::before {
+      content: 'M';
+    }
+    .box:nth-child(7)::before {
+        content: 'E';
+    }
+  
+  .button:hover .box:before {
+    transform: translateY(0);
+  }
+
+  .social-login-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    -webkit-box-reflect: below 5px linear-gradient(transparent, #00000055);
+  }
+  .social-login-icons svg {
+    width: 40px;
+  }
+  
+  .social-icon-1,
+  .social-icon-1-1,
+  .social-icon-2,
+  .social-icon-2-2,
+  .social-icon-3,
+  .social-icon-3-3,
+  .social-icon-4,
+  .social-icon-4-4 {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    margin: 20px 0 0px 0;
+  }
+  
+  .icon svg {
+    fill: #dd2929;
+  }
+  
+  .socialcontainer {
+    height: 80px;
+    overflow: hidden;
+  }
+  .social-icon-1 {
+    transition-duration: 0.4s;
+    background-color: rgb(25, 25, 25);
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+  }
+  .social-icon-1 svg,
+  .social-icon-2 svg,
+  .social-icon-3 svg,
+  .social-icon-4 svg {
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+  }
+  .social-icon-1-1 {
+    transition-duration: 0.4s;
+    background-color: rgba(53, 53, 53, 0);
+  }
+  .socialcontainer:hover .social-icon-1 {
+    transform: translateY(-70px);
+  }
+  .socialcontainer:hover .social-icon-1 svg,
+  .socialcontainer:hover .social-icon-2 svg,
+  .socialcontainer:hover .social-icon-3 svg,
+  .socialcontainer:hover .social-icon-4 svg {
+    opacity: 1;
+  }
+  .social-icon-2 {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+    background: linear-gradient(
+      72.44deg,
+      #ff7a00 11.92%,
+      #ff0169 51.56%,
+      #d300c5 85.69%
+    );
+  }
+  .socialcontainer:hover .social-icon-2 {
+    transform: translateY(-70px);
+  }
+  .social-icon-3 {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+    background: #316ff6;
+  }
+  
+  .socialcontainer:hover .social-icon-3 {
+    transform: translateY(-70px);
+  }
+  .social-icon-4 {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+  
+    background: linear-gradient(
+      180deg,
+      rgba(129, 34, 144, 1) 0%,
+      rgba(77, 34, 124, 1) 91%
+    );
+  }
+  
+  .socialcontainer:hover .social-icon-4 {
+    transform: translateY(-70px);
+  }
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        height: auto;
+    }
+
+    header nav .logo {
+        margin-bottom: 10px;
+    }
+
+    .social-icons a i {
+        font-size: 18px;
+        margin-left: 5px;
+    }
+
+    .hero-section .hero-content h4 {
+        font-size: 2rem;
+    }
+
+    .hero-section .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-section .hero-content h1 span {
+        font-size: 4rem;
+    }
+
+    .hero-section .hero-content .cta-button {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .social-icons a i {
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    .hero-section .hero-content h4 {
+        font-size: 1.5rem;
+    }
+
+    .hero-section .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-section .hero-content h1 span {
+        font-size: 3rem;
+    }
+
+    .hero-section .hero-content p {
+        font-size: 14px;
+    }
+
+    .hero-section .hero-content .cta-button {
+        padding: 6px 16px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    header nav {
+        width: 100%;
+    }
+
+    .hero-section .hero-content {
+        text-align: center;
+    }
+
+    .hero-section .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section .hero-content h1 span {
+        font-size: 3rem;
+    }
+}

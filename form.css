@@ -1,0 +1,79 @@
+/* Style the entire page with a background image */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://www.cybertalk.org/wp-content/uploads/2022/03/shutterstock_1044801037-scaled.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden; /* Prevent the form from going outside the viewport */
+}
+
+/* Container for the form */
+.container {
+    max-width: 500px; /* Limit the maximum width */
+    width: 100%; /* Full width up to max-width */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* White with 90% transparency for better readability */
+    border-radius: 10px; /* Optional rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Add a stronger shadow for better separation from background */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Light border */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    overflow-y: auto; /* Ensure form is scrollable if content overflows */
+    max-height: 90vh; /* Prevent the form from exceeding the viewport height */
+}
+
+/* Header style */
+h1 {
+    color: #e60000; /* Bright red for the header text */
+    text-align: center;
+    margin-bottom: 20px; /* Adjust margin for spacing */
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input[type="text"], input[type="email"], input[type="file"] {
+    width: 100%; /* Full width of the form group */
+    padding: 10px;
+    border: 1px solid #333; /* Darker borders */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly translucent input fields */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="file"]:focus {
+    outline: none;
+    border-color: #e60000; /* Red border on focus */
+    box-shadow: 0 0 5px rgba(230, 0, 0, 0.5); /* Slight red glow on focus */
+}
+
+button[type="submit"] {
+    background-color: #e60000; /* Bright red button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width button */
+}
+
+button[type="submit"]:hover {
+    background-color: #333; /* Dark black button on hover */
+    color: #fff; /* Keep text white */
+}
