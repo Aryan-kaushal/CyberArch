@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('application-form');
-    
+    const backButton = document.getElementById('back-button'); // Select the back button
+
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Prevent the form from submitting
         
@@ -53,4 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const maxSize = 2 * 1024 * 1024; // 2MB in bytes
         return allowedTypes.includes(file.type) && file.size <= maxSize;
     }
+
+    // Back button functionality
+    backButton.addEventListener('click', () => {
+        // Redirect to the dashboard page (replace 'dashboard.html' with your actual dashboard page)
+        window.location.href = 'dashboard.html'; // Adjust the path as necessary
+    });
 });
