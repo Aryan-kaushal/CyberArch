@@ -1,51 +1,68 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Evo Calendar
-    $('#attendance-calendar').evoCalendar({
-        theme: "Royal Navy", // Calendar theme
-        format: "MM dd, yyyy",
-        titleFormat: "MM yyyy",
-        todayHighlight: true
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    initializeCalendar();
+    loadAttendanceData();
+});
 
-    // Sample Attendance Data
+function initializeCalendar() {
+    // Initialize Evo Calendar with RedTheme
+    $('#attendance-calendar').evoCalendar({
+        theme: 'RedTheme',
+        todayHighlight: true,
+    });
+}
+
+function loadAttendanceData() {
+    // Mock attendance data
     const attendanceData = {
-        "2024-09-01": "present",
-        "2024-09-02": "absent",
-        "2024-09-03": "present",
-        "2024-09-04": "absent",
-        "2024-09-05": "present",
-        "2024-09-06": "present",
-        "2024-09-07": "absent",
-        "2024-09-08": "present"
+        present: [
+            '2024-10-01',
+            '2024-10-02',
+            '2024-10-04',
+            '2024-10-05',
+            '2024-10-07',
+            '2024-10-10'
+        ],
+        absent: [
+            '2024-10-03',
+            '2024-10-06',
+            '2024-10-08',
+            '2024-10-09'
+        ]
     };
 
-    let presentDays = 0;
-    let totalDays = Object.keys(attendanceData).length;
+    // Calculate attendance percentage
+    const totalDays = attendanceData.present.length + attendanceData.absent.length;
+    if (totalDays > 0) {
+        const attendancePercent = Math.round((attendanceData.present.length / totalDays) * 100);
+        document.getElementById('attendance-percent').innerText = attendancePercent + "%";
+    } else {
+        document.getElementById('attendance-percent').innerText = "No Data";
+    }
 
-    // Mark attendance in calendar and count present days
-    Object.keys(attendanceData).forEach(function(date) {
-        let type = attendanceData[date];
-        if (type === "present") {
-            $('#attendance-calendar').evoCalendar('addCalendarEvent', {
-                id: date, // Unique ID for the event
-                name: "Present", // Event name
-                date: date, // Date of the event
-                type: "holiday", // Green for Present
-                color: "#28a745"
-            });
-            presentDays++;
-        } else if (type === "absent") {
-            $('#attendance-calendar').evoCalendar('addCalendarEvent', {
-                id: date, // Unique ID for the event
-                name: "Absent", // Event name
-                date: date, // Date of the event
-                type: "holiday", // Red for Absent
-                color: "#dc3545"
-            });
-        }
+    // Add attendance events to calendar
+    attendanceData.present.forEach(date => {
+        $('#attendance-calendar').evoCalendar('addCalendarEvent', {
+            id: 'present-' + date,
+            name: 'Present',
+            date: date,
+            type: 'holiday', // Custom type to represent present
+            color: '#4caf50' // Green color for present
+        });
     });
 
-    // Calculate and display attendance percentage
-    let attendancePercentage = (presentDays / totalDays) * 100;
-    document.getElementById("attendance-percent").innerText = attendancePercentage.toFixed(2) + "%";
-});
+    attendanceData.absent.forEach(date => {
+        $('#attendance-calendar').evoCalendar('addCalendarEvent', {
+            id: 'absent-' + date,
+            name: 'Absent',
+            date: date,
+            type: 'holiday', // Custom type to represent absent
+            color: '#ff0000' // Red color for absent
+        });
+    });
+}
+
+function logout() {
+    // Implement logout functionality here
+    alert("Logged out successfully!");
+    window.location.href = 'index.html';
+}

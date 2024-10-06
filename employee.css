@@ -1,394 +1,420 @@
-/* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+/* -----------------------------
+   Import Google Fonts
+   ----------------------------- */
+   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+   /* -----------------------------
+      Global Reset and Base Styles
+      ----------------------------- */
+   * {
+     margin: 0;
+     padding: 0;
+     outline: none;
+     border: none;
+     text-decoration: none;
+     box-sizing: border-box;
+     font-family: "Poppins", sans-serif;
+   }
+   
+   body {
+     background: #1b1b1c;
+     color: white;
+   }
+   
+   /* -----------------------------
+      Image Styling
+      ----------------------------- */
+   .imgs {
+     height: 120px;
+     width: 120px;
+     border-radius: 20px;
+     object-fit: cover;
+   }
+   
+   /* -----------------------------
+      Top Image Background
+      ----------------------------- */
+   .top_img {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     z-index: -1; /* Position behind other content */
+   }
+   
+   .top_img img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover; /* Ensure the image covers the area */
+     opacity: 0.7; /* Optional: Slight opacity for better readability */
+   }
+   
+   /* -----------------------------
+      Container Styling
+      ----------------------------- */
+   .container {
+     display: flex;
+     height: 100vh;
+   }
+   
+   /* -----------------------------
+      Navigation Sidebar
+      ----------------------------- */
+   nav {
+     height: 100vh;
+     width: 280px;
+     background-color: #000000;
+     color: #eee;
+     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+     position: relative;
+     transition: transform 0.3s ease-in-out;
+   }
+   
+   nav ul {
+     list-style: none;
+     padding: 20px 0;
+   }
+   
+   nav ul li {
+     width: 100%;
+   }
+   
+   nav ul li a {
+     display: flex;
+     align-items: center;
+     padding: 15px 20px;
+     color: #adb5bd;
+     font-size: 16px;
+     transition: background 0.3s, color 0.3s;
+   }
+   
+   nav ul li a:hover {
+     background: #ff4747;
+     color: #fff;
+   }
+   
+   nav ul li a i {
+     margin-right: 15px;
+     font-size: 18px;
+     transition: color 0.3s;
+   }
+   
+   nav ul li a.logout {
+     position: absolute;
+     bottom: 20px;
+     /* left: 50%; */
+     transform: translateX(-50%);
+     background: #dc3545;
+     width: 90%;
+     text-align: center;
+     padding: 12px 0;
+     border-radius: 5px;
+     margin-left: 60px;
+     cursor: pointer;
+   }
+   
+   nav ul li a.logout:hover {
+     background: #c82333;
+     margin-left: 70px;
+   }
+   
+   /* -----------------------------
+      Logo Styling
+      ----------------------------- */
+   .logo {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-bottom: 30px;
+   }
+   
+   .logo img {
+     width: 60px;
+     height: 60px;
+   }
+   
+   .logo .nav-item {
+     margin-left: 15px;
+     font-size: 20px;
+     font-weight: 600;
+     color: #fff;
+   }
+   
+   /* -----------------------------
+      Main Content Section
+      ----------------------------- */
+   .main {
+     flex: 1;
+     padding: 30px;
+     margin: 0;
+     overflow-y: auto;
+     background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+   }
+   
+   .main-top {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     margin-bottom: 40px;
+   }
+   
+   .main-top h1 {
+     font-size: 2.5rem;
+     color: #fff;
+   }
+   
+   .main-top i {
+     font-size: 2rem;
+     color: #17a2b8;
+     cursor: pointer;
+   }
+   
+   /* -----------------------------
+      User Progress Dashboard Styles
+      ----------------------------- */
+   
+   /* Dashboard Container */
+   .dashboard-container {
+     background: rgba(27, 27, 28, 0.9); /* Slightly transparent background for the dashboard */
+     padding: 30px;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     color: #fff; /* White text for readability */
+   }
+   
+   /* Dashboard Header */
+   .dashboard-container h2 {
+     text-align: center;
+     margin-bottom: 30px;
+     font-size: 2rem;
+     color: #ff4747; /* Highlight color for the header */
+   }
+   
+   /* Progress Section */
+   .progress-section {
+     margin-bottom: 50px;
+   }
+   
+   .progress-section h3 {
+     margin-bottom: 15px;
+     font-size: 1.5rem;
+     color: #f0ad4e; /* Accent color for sub-headers */
+   }
+   
+   /* Progress Bar Container */
+   .progress-bar {
+     width: 100%;
+     background-color: #343a40; /* Dark background for the progress bar */
+     border-radius: 25px;
+     overflow: hidden;
+     height: 30px;
+   }
+   
+   /* Progress Fill */
+   .progress-fill {
+     height: 100%;
+     background-color: #28a745; /* Green color indicating progress */
+     width: 0; /* Initial width, will be animated via JavaScript */
+     line-height: 30px;
+     color: #fff;
+     text-align: center;
+     border-radius: 25px 0 0 25px;
+     transition: width 1.5s ease-in-out; /* Smooth animation for progress */
+     font-weight: bold;
+   }
+   
+   /* Charts Section */
+   .charts-section {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 40px;
+     justify-content: space-between;
+   }
+   
+   /* Individual Chart Container */
+   .chart-container {
+     background: rgba(52, 58, 64, 0.9); /* Semi-transparent dark background */
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     flex: 1 1 45%; /* Responsive width */
+     min-width: 300px; /* Minimum width for smaller screens */
+   }
+   
+   /* Chart Headers */
+   .chart-container h3 {
+     text-align: center;
+     margin-bottom: 20px;
+     font-size: 1.3rem;
+     color: #17a2b8; /* Different accent color for variety */
+   }
+   
+   /* Responsive Design for Charts */
+   @media (max-width: 768px) {
+     .charts-section {
+       flex-direction: column;
+       align-items: center;
+     }
+   
+     .chart-container {
+       flex: 1 1 100%;
+     }
+   }
+   
+   /* -----------------------------
+      Additional Styling for Enhanced UX
+      ----------------------------- */
+   
+   /* Smooth Transition for Progress Fill */
+   .progress-fill {
+     transition: width 2s ease;
+   }
+   
+   /* Font Awesome Icons Styling */
+   nav ul li a i {
+     color: #adb5bd; /* Light gray icons */
+     transition: color 0.3s;
+   }
+   
+   nav ul li a:hover i {
+     color: #ff4747; /* Highlight icons on hover */
+   }
+   
+   /* Active Navigation Link */
+   nav ul li a.active {
+     background: #ff4747; /* Highlight active link */
+     color: #fff;
+   }
+   
+   nav ul li a.active i {
+     color: #fff; /* White icon color for active link */
+   }
+   
+   /* Logout Button Styling */
+   nav ul li a.logout {
+     position: absolute;
+     bottom: 20px;
+     width: 90%;
+     left: 5%;
+     background: #dc3545; /* Red background for logout */
+     padding: 10px;
+     border-radius: 5px;
+     text-align: center;
+     color: #fff;
+     transition: background 0.3s;
+     margin-right: 10px;
+   }
+   
+   nav ul li a.logout:hover {
+     background: #c82333; /* Darker red on hover */
+     margin-left: 10px;
+   }
+   
+   /* -----------------------------
+      Chart.js Canvas Styling
+      ----------------------------- */
+   
+   /* Ensure Canvas Elements Take Full Width of Container */
+   .chart-container canvas {
+     width: 100% !important;
+     height: auto !important;
+   }
+   
+   /* Optional: Adjust Font Sizes Within Charts */
+   .chart-container .chartjs-render-monitor {
+     font-family: "Poppins", sans-serif;
+   }
+   
+   /* -----------------------------
+      Responsive Design Enhancements
+      ----------------------------- */
+   @media (max-width: 1200px) {
+     .main {
+       padding: 25px;
+     }
+   
+     .dashboard-container {
+       padding: 25px;
+     }
+   
+     .progress-section h3 {
+       font-size: 1.4rem;
+     }
+   
+     .dashboard-container h2 {
+       font-size: 2rem;
+     }
+   
+     .charts-section {
+       gap: 30px;
+     }
+   
+     .chart-container h3 {
+       font-size: 1.2rem;
+     }
+   }
+   
+   @media (max-width: 992px) {
+     nav {
+       width: 240px;
+     }
+   
+     .container {
+       flex-direction: column;
+     }
+   
+     .main {
+       width: 100%;
+     }
+   
+     .dashboard-container {
+       margin-top: 20px;
+     }
+   }
 
-body {
-  background: #1b1b1c;
-  color: white;
-}
 
-.imgs {
-  height: 120px;
-  width: 120px;
-  border-radius: 20px;
-}
 
-/* Top Image Background */
-.top_img {
+
+/* Logout Button Styling */
+nav ul li a.logout {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1; /* Position behind other content */
+  bottom: 20px;
+  width: 90%; /* Maintain a relative width */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  background: #dc3545; /* Red background for logout */
+  padding: 10px; /* Uniform padding */
+  border-radius: 5px; /* Rounded corners */
+  text-align: center; /* Center text */
+  color: #fff; /* Text color */
+  transition: background 0.3s; /* Smooth background transition */
 }
 
-.top_img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image covers the area */
-}
-
-/* Container Styling */
-.container {
-  display: flex;
-  transition: margin-left 0.3s;
-}
-
-/* Navigation Styling */
-nav {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
-  left: 0;
-  width: 280px;
-  overflow: hidden;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-  background-color: #000000;
-  color: #eee;
-  transition: transform 0.3s;
-}
-
-nav.hidden {
-  transform: translateX(-100%);
-}
-
-.nav-toggle {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  display: none;
-  cursor: pointer;
-}
-
-.nav-toggle i {
-  font-size: 24px;
-  color: #fff;
-}
-
-.logo {
-  text-align: center;
-  display: flex;
-  margin: 10px 0 0 10px;
-}
-
-.logo img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-}
-
-.logo span {
-  font-weight: bold;
-  padding-left: 15px;
-  font-size: 18px;
-  text-transform: uppercase;
-}
-
-a {
-  position: relative;
-  color: rgb(85, 83, 83);
-  font-size: 14px;
-  display: table;
-  width: 280px;
-  padding: 10px;
-}
-
-nav .fas {
-  position: relative;
-  width: 70px;
-  height: 40px;
-  top: 14px;
-  font-size: 20px;
-  text-align: center;
-}
-
-.nav-item {
-  position: relative;
-  top: 12px;
-  margin-left: 10px;
-  color: whitesmoke;
-}
-
-a:hover {
-  background: #ed2020;
-}
-
-.logout {
-  position: absolute;
-  bottom: 0;
-}
-
-/* Main Section Styling */
-.main {
-  position: relative;
-  padding: 20px;
-  width: calc(100% - 280px); /* Adjust for the navigation width */
-  color: white;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-  transition: width 0.3s;
-}
-
-/* Main Top Section */
-.main-top {
-  display: flex;
-  width: 100%;
-}
-
-.main-top i {
-  position: absolute;
-  right: 0;
-  margin: 10px 30px;
-  color: rgb(110, 109, 109);
-  cursor: pointer;
-}
-
-/* Skills Section */
-.main-skills {
-  display: flex;
-  flex-wrap: wrap; /* Wrap cards to new rows */
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.main-skills .card {
-  flex: 1 1 calc(25% - 20px); /* Adjust based on available space and margins */
-  margin: 10px;
-  background: rgba(118, 60, 60, 0.5); /* Translucent black */
-  text-align: center;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-}
-
-.main-skills .card h3 {
-  margin: 10px;
-  text-transform: capitalize;
-}
-
-.main-skills .card p {
-  font-size: 12px;
-}
-
-.main-skills .card button {
-  background: rgb(0, 0, 0);
-  color: #fff;
-  padding: 7px 15px;
-  border-radius: 10px;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-.main-skills .card button:hover {
-  background: rgba(223, 70, 15, 0.856);
-  box-shadow: black;
-}
-
-.main-skills .card i {
-  font-size: 22px;
-  padding: 10px;
-}
-
-/* Courses Section */
-.main-course {
-  margin-top: 12vh;
-  text-transform: capitalize;
-  font-size: 1.2rem;
-}
-
-.course-box {
-  width: 100%;
-  height: 300px;
-  padding: 10px 10px 30px 10px;
-  margin-top: 10px;
-  background: #000000;
-  border-radius: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-}
-
-.course-box ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap; /* Wrap list items to new rows */
-}
-
-.course-box ul li {
-  margin: 10px;
-  color: gray;
-  cursor: pointer;
-}
-
-.course-box ul .active {
-  color: grey;
-  border-bottom: 1px solid #000;
-}
-
-.course-box .course {
-  display: flex;
-  flex-wrap: wrap; /* Wrap course boxes to new rows */
-}
-
-.box {
-  flex: 1 1 calc(33% - 20px); /* Adjust based on available space and margins */
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  background: rgb(241, 3, 3);
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-}
-
-.box p {
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.box button {
-  background: #000;
-  color: #fff;
-  padding: 7px 10px;
-  border-radius: 10px;
-  margin-top: 3rem;
-  cursor: pointer;
-}
-
-.box button:hover {
-  background: rgba(0, 0, 0, 0.842);
-}
-
-.box i {
-  font-size: 7rem;
-  float: right;
-  margin: -20px 20px 20px 0;
-}
-
-.html {
-  color: rgb(25, 94, 54);
-}
-
-.css {
-  color: rgb(104, 179, 35);
-}
-
-.js {
-  color: rgb(28, 98, 179);
-}
-
-
-
-/* Custom Red Theme for Evo Calendar */
-.evo-calendar.evo-calendar-theme-RedTheme {
-    --evo-color-primary: #ff4747; /* Primary red color */
-    --evo-color-secondary: #ffabab; /* Light red */
-    --evo-color-accent: #ff1a1a; /* Darker red for accents */
-    --evo-color-text: #ffffff; /* White text */
-}
-
-/* Header */
-.evo-calendar.evo-calendar-theme-RedTheme .calendar-header {
-    background-color: var(--evo-color-primary);
-    color: var(--evo-color-text);
-}
-
-.evo-calendar.evo-calendar-theme-RedTheme .calendar-header h1 {
-    color: var(--evo-color-text);
-}
-
-/* Sidebar */
-.evo-calendar.evo-calendar-theme-RedTheme .calendar-sidebar {
-    background-color: var(--evo-color-secondary);
-    color: var(--evo-color-text);
-}
-
-/* Events list */
-.evo-calendar.evo-calendar-theme-RedTheme .event-container .event-header {
-    background-color: var(--evo-color-accent);
-    color: var(--evo-color-text);
-}
-
-.evo-calendar.evo-calendar-theme-RedTheme .event-container .event-list {
-    background-color: var(--evo-color-secondary);
-    color: var(--evo-color-text);
-}
-
-/* Days */
-.evo-calendar.evo-calendar-theme-RedTheme .calendar-body .day {
-    color: var(--evo-color-accent);
-}
-
-.evo-calendar.evo-calendar-theme-RedTheme .calendar-body .day.current-day {
-    background-color: var(--evo-color-primary);
-    color: var(--evo-color-text);
-}
-
-/* Today Highlight */
-.evo-calendar.evo-calendar-theme-RedTheme .calendar-body .day.today {
-    border-color: var(--evo-color-primary);
-    color: var(--evo-color-accent);
-}
-
-
-/* Media Queries for Responsiveness */
-@media (max-width: 1200px) {
-  .main {
-    width: calc(100% - 240px); /* Adjust for navigation width */
-  }
-
-  .main-skills .card {
-    flex: 1 1 calc(33% - 20px); /* Adjust card width */
-  }
-
-  .box {
-    flex: 1 1 calc(50% - 20px); /* Adjust box width */
-  }
-}
-
-@media (max-width: 992px) {
-  .main {
-    width: calc(100% - 200px); /* Adjust for navigation width */
-  }
-
-  .main-skills .card {
-    flex: 1 1 calc(50% - 20px); /* Adjust card width */
-  }
-
-  .box {
-    flex: 1 1 calc(100% - 20px); /* Adjust box width */
-  }
-}
-
+/* Responsive Adjustments for Logout Button */
 @media (max-width: 768px) {
-  nav {
-    width: 100%;
-    height: auto;
-    transform: translateX(-100%); /* Hide navigation */
-  }
-
-  .container {
-    flex-direction: column;
-  }
-
-  .main {
-    width: 100%;
-  }
-
-  .main-skills .card,
-  .box {
-    flex: 1 1 100%; /* Adjust card and box width */
-  }
-
-  .nav-toggle {
-    display: block;
+  nav ul li a.logout {
+    width: 95%; /* Slightly wider for smaller screens */
+    font-size: 16px; /* Increase font size for better readability */
+    padding: 12px; /* More padding for touch-friendly UI */
   }
 }
+
+@media (max-width: 576px) {
+  nav ul li a.logout {
+    width: 100%; /* Full width on the smallest screens */
+    font-size: 18px; /* Larger font size for better visibility */
+    padding: 15px; /* Further increase padding */
+  }
+}
+
+
+
+
+
+
+
+
+
+
