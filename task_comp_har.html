@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Calendar</title>
+    <title>tasks</title>
+    <link rel="stylesheet" href="task_ar.css">
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="employee.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
+
     <header>
         <div class="top_img">
-            <img src="img/employeedash.jpg" alt="Employee Dashboard Background">
+            <img src="/img/employeedash.jpg" alt="Employee Dashboard Background">
         </div>
+        <button class="hamburger" onclick="toggleNav()">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
     <div class="container">
-        <nav>
+        <nav id="navbar">
             <ul>
                 <li><a href="emp_har.html" class="logo">
                         <img src="/img/hardik.jpg" alt="Aryan Kaushal Icon">
@@ -29,7 +31,7 @@
                         <i class="fas fa-user"></i>
                         <span class="nav-item">Profile</span>
                     </a></li>
-                <li><a href="tasks.html">
+                <li><a href="task_har.html">
                         <i class="fas fa-tasks"></i>
                         <span class="nav-item">Tasks</span>
                     </a></li>
@@ -52,19 +54,27 @@
             </ul>
         </nav>
 
-        <main class="main">
-            <h1>Attendance Calendar</h1>
-            <div id="attendance-calendar"></div>
-            <div class="attendance-percentage">
-                <h3>Attendance Percentage: <span id="attendance-percent">0%</span></h3>
-            </div>
-        </main>
-    </div>
+      
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
-    <script src="admin.js"></script>
-    <script src="attendance.js"></script>
+ <!-- Tasks Completed Section -->
+<div class="completed-section">
+    <h3>Tasks Completed</h3>
+    <ul id="completed-tasks">
+        <li>
+            <i class="fas fa-check-circle completed-icon"></i>
+            Conduct vulnerability scan - Completed on 10th October
+        </li>
+        <li>
+            <i class="fas fa-check-circle completed-icon"></i>
+            Update firewall rules - Completed on 8th October
+        </li>
+        <li>
+            <i class="fas fa-check-circle completed-icon"></i>
+            Review network security policies - Completed on 5th October
+        </li>
+    </ul>
+</div>
+
+</div>
 </body>
-
 </html>

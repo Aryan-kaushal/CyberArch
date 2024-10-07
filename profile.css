@@ -6,7 +6,9 @@ body {
 }
 
 .container {
-    display: flex; /* Allows nav and profile sections to align properly */
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 nav {
@@ -42,18 +44,17 @@ nav a:hover {
 }
 
 .profile-container {
-    flex: 1; /* Takes the remaining space */
-    background-color: #1a1a1a; /* Dark background for contrast */
-    color: #fff; /* White text for visibility */
+    flex: 1;
+    background-color: #1a1a1a;
+    color: #fff;
     padding: 20px;
     border-radius: 10px;
-    margin-left: 20px; /* Margin to separate nav from profile */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .profile-header {
     text-align: center;
-    background-color: #d9534f; /* Red theme */
+    background-color: #d9534f;
     color: #fff;
     padding: 20px;
     border-radius: 10px 10px 0 0;
@@ -75,12 +76,12 @@ nav a:hover {
 
 h1 {
     margin-top: 100px;
-    font-size: 24px; /* Increased font size for emphasis */
+    font-size: 24px;
 }
 
 h2 {
     margin-top: 10px;
-    font-size: 18px; /* Slightly smaller than the main title */
+    font-size: 18px;
 }
 
 .profile-details {
@@ -93,7 +94,7 @@ h2 {
 
 .section h3 {
     margin-bottom: 10px;
-    color: #d9534f; /* Red theme for headings */
+    color: #d9534f;
 }
 
 .section p, .section ul {
@@ -106,7 +107,7 @@ ul {
 }
 
 button {
-    background-color: #d9534f; /* Red theme */
+    background-color: #d9534f;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -115,14 +116,151 @@ button {
 }
 
 button:hover {
-    background-color: #c9302c; /* Darker red on hover */
+    background-color: #c9302c;
 }
 
-/* Additional styling to support photo section */
 .profile-header {
-    padding-top: 100px; /* Adjust padding for photo */
+    padding-top: 100px;
 }
 
 body, html {
     height: 100%;
+}
+
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Base nav styles */
+nav {
+    width: 280px;
+    background-color: #000;
+    color: #eee;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: #ed2020;
+    color: #fff;
+}
+
+/* Responsive navigation bar styles */
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100vh;
+        transition: left 0.3s ease;
+        z-index: 10;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav.active {
+        left: 0;
+    }
+
+    .container {
+        padding-top: 60px; /* Add padding to avoid content being hidden by nav */
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .profile-container {
+        margin-left: 0;
+    }
+
+    .profile-header {
+        padding-top: 140px;
+    }
+
+    .employee-photo {
+        top: -70px;
+        width: 120px;
+        height: 120px;
+    }
+
+    h1 {
+        margin-top: 70px;
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        font-size: 16px;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    .section h3 {
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .container {
+        gap: 10px; /* Reduce gap for small screens */
+    }
 }
