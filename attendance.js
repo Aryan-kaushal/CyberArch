@@ -66,3 +66,60 @@ function logout() {
     alert("Logged out successfully!");
     window.location.href = 'index.html';
 }
+
+
+
+const monthYear = document.getElementById('monthYear');
+const daysContainer = document.getElementById('days');
+const prevMonthButton = document.getElementById('prevMonth');
+const nextMonthButton = document.getElementById('nextMonth');
+
+let currentDate = new Date();
+
+function getRandomAttendance() {
+    return Math.random() < 0.5 ? 'present' : 'absent'; // 50% chance for each
+}
+
+function renderCalendar() {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    monthYear.innerText = `${currentDate.toLocaleString('default', { month: 'long' })} ${year}`;
+
+    daysContainer.innerHTML = '';
+    
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const totalDays = lastDay.getDate();
+
+    // Blank days before the first day of the month
+    for (let i = 0; i < firstDay.getDay(); i++) {
+        const blankDay = document.createElement('div');
+        blankDay.classList.add('day');
+        daysContainer.appendChild(blankDay);
+    }
+
+    // Days of the month with random attendance
+    for (let i = 1; i <= totalDays; i++) {
+        const day = document.createElement('div');
+        day.classList.add('day');
+        day.innerText = i;
+
+        // Randomly assign present or absent class
+        const attendance = getRandomAttendance();
+        day.classList.add(attendance);
+
+        daysContainer.appendChild(day);
+    }
+}
+
+prevMonthButton.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+});
+
+nextMonthButton.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+});
+
+renderCalendar();

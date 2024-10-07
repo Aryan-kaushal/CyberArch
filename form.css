@@ -1,7 +1,7 @@
 /* Style the entire page with a background image */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('https://i.pinimg.com/564x/5b/80/e2/5b80e2d57f59c2764189845af3f52836.jpg'); /* Replace with your image URL */
+    background-image: url('/img/cybimg.jpg'); /* Replace with your image URL */
     background-size: cover; /* Cover the entire page */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent the image from repeating */
