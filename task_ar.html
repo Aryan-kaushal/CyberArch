@@ -54,34 +54,58 @@
             </ul>
         </nav>
 
-      
+        <!-- New Tasks Assigned Section -->
+        <div class="section tasks-section">
+            <h3>Tasks Assigned to Aryan Kaushal</h3>
+            <ul id="tasks"></ul>
+        </div>
+    </div>
 
-      <!-- New Tasks Assigned Section -->
-<div class="section tasks-section">
-    <h3>Tasks Assigned</h3>
-    <ul id="tasks">
-        <li>
-            <span>Conduct network penetration testing - Deadline: 15th October</span>
-            <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 50%;"></div>
-                <span class="progress-text">50% Time Passed </span>
-            </div>
-        </li>
-        <li>
-            <span>Prepare cybersecurity awareness presentation - Deadline: 20th October</span>
-            <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 25%;"></div>
-                <span class="progress-text">25% Time Passed</span>
-            </div>
-        </li>
-        <li>
-            <span>Complete vulnerability assessment report - Deadline: 25th October</span>
-            <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 10%;"></div>
-                <span class="progress-text">10% Time Passed</span>
-            </div>
-        </li>
-    </ul>
-</div>
+    <script>
+        // Function to display tasks assigned to the specific employee
+        function displayEmployeeTasks(employeeName) {
+            let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            const taskList = document.getElementById("tasks");
+            taskList.innerHTML = "";
+
+            // Filter tasks assigned to the specified employee
+            const employeeTasks = tasks.filter((task) => task.employee === employeeName);
+
+            if (employeeTasks.length === 0) {
+                taskList.innerHTML = "<li>No tasks assigned</li>";
+                return;
+            }
+
+            // Display filtered tasks
+            employeeTasks.forEach((task) => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `
+                    <span><strong>${task.topic}</strong> - Deadline: ${task.deadline}</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: ${task.progress}%;"></div>
+                        <span class="progress-text">${task.progress}% Time Passed</span>
+                    </div>
+                `;
+                taskList.appendChild(listItem);
+            });
+        }
+
+        // Call function to display tasks for Aryan Kaushal on page load
+        window.onload = function() {
+            const currentEmployee = "Aryan Kaushal";
+            displayEmployeeTasks(currentEmployee);
+        };
+
+        // Example logout function
+        function logout() {
+            alert("You have been logged out.");
+        }
+
+        // Example toggleNav function for the hamburger menu
+        function toggleNav() {
+            const navbar = document.getElementById("navbar");
+            navbar.classList.toggle("active");
+        }
+    </script>
 </body>
 </html>

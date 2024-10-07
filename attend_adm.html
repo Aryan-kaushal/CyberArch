@@ -1,0 +1,134 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System - Admin</title>
+    <link rel="stylesheet" href="task_admin.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="top_img">
+        <img src="/img/lock_n.jpg" alt="Background Image">
+    </div>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#" class="logo">
+                        <img src="/img/admin_icon.png" alt="Admin Icon">
+                        <span class="nav-item">DashBoard</span>
+                    </a></li>
+                <li><a href="task_admin.html">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-item">Tasks</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Attendance</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Messages</span>
+                    </a></li>
+                <li><a href="index.html" class="logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+
+<!-- Attendance Section for Admin Page -->
+<section class="attendance-section">
+    <h3>Attendance Records</h3>
+    <table class="attendance-table">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="attendanceRecords"></tbody>
+    </table>
+
+    <!-- Form to Add Attendance -->
+    <form id="addAttendanceForm">
+        <label for="attendanceEmployee">Employee:</label>
+        <select id="attendanceEmployee" name="attendanceEmployee" required>
+            <option value="" disabled selected>Select an employee</option>
+            <option value="Aryan Kaushal">Aryan Kaushal</option>
+            <option value="Hardik">Hardik</option>
+        </select>
+
+        <label for="attendanceDate">Date:</label>
+        <input type="date" id="attendanceDate" name="attendanceDate" required>
+
+        <label for="attendanceStatus">Status:</label>
+        <select id="attendanceStatus" name="attendanceStatus" required>
+            <option value="" disabled selected>Select status</option>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        </select>
+
+        <button type="submit">Add Attendance</button>
+    </form>
+</section>
+
+<script>
+    // Function to display all attendance records
+    function displayAllAttendance() {
+        let attendanceRecords = JSON.parse(localStorage.getItem("attendanceRecords")) || [];
+        const attendanceTableBody = document.getElementById("attendanceRecords");
+        attendanceTableBody.innerHTML = "";
+
+        if (attendanceRecords.length === 0) {
+            attendanceTableBody.innerHTML = "<tr><td colspan='3'>No attendance records available</td></tr>";
+            return;
+        }
+
+        // Display all attendance records
+        attendanceRecords.forEach((record) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${record.employee}</td>
+                <td>${record.date}</td>
+                <td>${record.status}</td>
+            `;
+            attendanceTableBody.appendChild(row);
+        });
+    }
+
+    // Function to add new attendance record
+    document.getElementById("addAttendanceForm").onsubmit = function(e) {
+        e.preventDefault();
+
+        let attendanceRecords = JSON.parse(localStorage.getItem("attendanceRecords")) || [];
+
+        const employee = document.getElementById("attendanceEmployee").value;
+        const date = document.getElementById("attendanceDate").value;
+        const status = document.getElementById("attendanceStatus").value;
+
+        attendanceRecords.push({ employee, date, status });
+
+        // Store updated attendance records in local storage
+        localStorage.setItem("attendanceRecords", JSON.stringify(attendanceRecords));
+
+        // Refresh attendance display
+        displayAllAttendance();
+
+        // Clear form
+        this.reset();
+    };
+
+    // Call function to display attendance records on page load
+    window.onload = function() {
+        displayAllAttendance();
+    };
+</script>
+    </div>
+</body></html>
