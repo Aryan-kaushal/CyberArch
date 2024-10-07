@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calendar</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="employee.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="top_img">
+            <img src="/img/employeedash.jpg" alt="Employee Dashboard Background">
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="employee.html" class="logo">
+                        <img src="/img/hardik.jpg" alt="Aryan Kaushal Icon">
+                        <span class="nav-item">Hardik Garg</span>
+                    </a></li>
+                <li><a href="profile_har.html">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a></li>
+                <li><a href="tasks.html">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-item">Tasks</span>
+                    </a></li>
+                <li><a href="attendance_har.html">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span class="nav-item">Attendance</span>
+                    </a></li>
+                <li><a href="completed.html">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="nav-item">Completed</span>
+                    </a></li>
+                <li><a href="form.html">
+                        <i class="fas fa-clipboard"></i>
+                        <span class="nav-item">Apply</span>
+                    </a></li>
+                <li><a href="index.html" class="logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <main class="main">
+            <h1>Attendance Calendar</h1>
+            <div id="attendance-calendar"></div>
+            <div class="attendance-percentage">
+                <h3>Attendance Percentage: <span id="attendance-percent">0%</span></h3>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+    <script src="admin.js"></script>
+    <script src="attendance.js"></script>
+</body>
+
+</html>

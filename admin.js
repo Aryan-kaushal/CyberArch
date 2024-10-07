@@ -37,3 +37,12 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
   });
+  function logout() {
+    alert("Logging out...");
+    // Implement actual logout logic if needed
+}
+
+function logout() {
+  alert("Logging out...");
+  // Implement actual logout logic if needed
+}

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="employee.css">
+    
+    <!-- Font Awesome CDN for Icons -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-p7KJAK4GZQvgh1k2kGv9Xh/VQ5D0PSTcC6sSP+JJMRQwVNy6iY9NnM0O74pcF7DgdrJol5VnPSzE0+GjJvR0Mg==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" 
+    />
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Dark background color */
+            color: #e0e0e0; /* Light text color */
+        }
+
+        /* Top Image Background */
+        .top_img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+        }
+
+        /* Navigation Sidebar */
+        nav {
+            width: 250px;
+            background-color: rgba(30, 30, 30, 0.9); /* Dark semi-transparent background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 15px 0; /* Space between nav items */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #e0e0e0; /* Light text color */
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center; /* Center icon and text */
+            transition: background-color 0.3s; /* Smooth hover effect */
+        }
+
+        nav a:hover {
+            background-color: rgba(76, 175, 80, 0.2); /* Light green background on hover */
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .imgs {
+            border-radius: 50%; /* Circular profile picture */
+            width: 50px;
+            height: 50px;
+            margin-right: 10px; /* Space between image and name */
+        }
+
+        /* Main Content Section */
+        section.main {
+            flex-grow: 1; /* Allow main section to grow */
+            padding: 20px;
+        }
+
+        .main-top {
+            display: flex;
+            justify-content: space-between; /* Space between title and icon */
+            align-items: center;
+            margin-bottom: 20px; /* Space below the top section */
+        }
+
+        .main-top h1 {
+            margin: 0; /* Remove default margin */
+            color: #e0e0e0; /* Light color for title */
+        }
+
+        .dashboard-container {
+            background-color: rgba(30, 30, 30, 0.9); /* Dark semi-transparent background */
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px; /* Padding inside dashboard */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .category {
+            margin: 20px 0; /* Space between categories */
+            padding: 10px; /* Padding inside the category container */
+            border: 1px solid #444; /* Light border for category */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #1e1e1e; /* Dark background for category */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-header {
+            font-weight: bold; /* Bold text for category name */
+            text-align: center; /* Center align category name */
+            margin-bottom: 10px; /* Space below the header */
+            color: #76ff03; /* Bright green color for category name */
+        }
+
+        .tasks-container {
+            margin-top: 10px; /* Space above tasks */
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between; /* Space between task name and progress */
+            margin: 5px 0; /* Space between tasks */
+            padding: 5px;
+            background-color: #333; /* Dark gray background for tasks */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .task-name {
+            flex-grow: 1; /* Allow task name to grow */
+            padding-right: 10px; /* Space between task name and progress */
+            color: #e0e0e0; /* Light text color */
+        }
+
+        .progress-value {
+            font-weight: bold; /* Bold text for progress value */
+            color: #76ff03; /* Bright green color for progress value */
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Image Background -->
+    <div class="top_img">
+        <img src="/img/employeedash.jpg" alt="Background Image">
+    </div>
+    
+    <div class="container">
+        <!-- Navigation Sidebar -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="emp_har.html" class="logo">
+                        <img src="/img/hardik.jpg" alt="Profile Picture" class="imgs">
+                        <span class="nav-item">Hardik Garg</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="profile_har.html">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tasks.html">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-item">Tasks</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="attendance_har.html">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="nav-item">Attendance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="completed.html">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="nav-item">Completed</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="form.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="nav-item">Apply</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" class="logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content Section -->
+        <section class="main">
+            <div class="main-top">
+                <h1>Dashboard</h1>
+                <i class="fas fa-users"></i>
+            </div>
+            
+            <!-- User Progress Dashboard -->
+            <div class="dashboard-container">
+                <h2>User Progress Dashboard</h2>
+
+                <!-- Categories Container -->
+                <div id="categories-container"></div>
+
+                <!-- Category Template -->
+                <script id="category-template" type="text/template">
+                    <div class="category">
+                        <div class="category-header"></div>
+                        <div class="category-progress-container">
+                            <div class="progress-label">Category Progress: <span class="category-progress-percent">0%</span></div>
+                            <div class="chart-container">
+                                <canvas class="category-chart" width="200" height="100"></canvas> <!-- Bar chart -->
+                            </div>
+                        </div>
+                        <div class="tasks-container"></div>
+                    </div>
+                </script>
+
+                <!-- Task Template -->
+                <script id="task-template" type="text/template">
+                    <div class="task">
+                        <span class="task-name"></span>
+                        <span class="progress-value"></span> <!-- Progress value displayed here -->
+                    </div>
+                </script>
+
+                <script>
+                    const categories = [
+                        {
+                            name: "Bug Hunting",
+                            tasks: [
+                                { name: "Task 1", progress: 40 }, // Predefined progress
+                                { name: "Task 2", progress: 70 }  // Predefined progress
+                            ]
+                        },
+                        {
+                            name: "Cyber Forensics",
+                            tasks: [
+                                { name: "Task 1", progress: 30 }, // Predefined progress
+                                { name: "Task 2", progress: 90 }  // Predefined progress
+                            ]
+                        }
+                    ];
+
+                    function updateCategoryProgress(categoryElement, tasks) {
+                        const totalProgress = tasks.reduce((sum, task) => sum + task.progress, 0);
+                        const averageProgress = tasks.length ? totalProgress / tasks.length : 0;
+                        const categoryProgressPercent = categoryElement.querySelector('.category-progress-percent');
+
+                        categoryProgressPercent.textContent = `${averageProgress.toFixed(2)}%`;
+
+                        // Update the bar chart
+                        const chartElement = categoryElement.querySelector('.category-chart');
+                        const chart = Chart.getChart(chartElement);
+                        if (chart) {
+                            chart.data.datasets[0].data = tasks.map(task => task.progress); // Update with task progress
+                            chart.update();
+                        }
+                    }
+
+                    function renderCategories() {
+                        const categoriesContainer = document.getElementById('categories-container');
+                        const categoryTemplate = document.getElementById('category-template').innerHTML;
+                        const taskTemplate = document.getElementById('task-template').innerHTML;
+
+                        categories.forEach(category => {
+                            const categoryElement = document.createElement('div');
+                            categoryElement.innerHTML = categoryTemplate;
+                            categoryElement.querySelector('.category-header').textContent = category.name;
+
+                            const tasksContainer = categoryElement.querySelector('.tasks-container');
+
+                            category.tasks.forEach(task => {
+                                const taskElement = document.createElement('div');
+                                taskElement.innerHTML = taskTemplate;
+                                taskElement.querySelector('.task-name').textContent = task.name;
+                                taskElement.querySelector('.progress-value').textContent = `${task.progress}%`; // Display the progress
+
+                                tasksContainer.appendChild(taskElement);
+                            });
+
+                            // Initialize Chart.js as a Bar chart
+                            const chartElement = categoryElement.querySelector('.category-chart');
+                            const chart = new Chart(chartElement, {
+                                type: 'bar',
+                                data: {
+                                    labels: category.tasks.map(task => task.name), // Task names as labels
+                                    datasets: [{
+                                        label: 'Task Progress',
+                                        data: category.tasks.map(task => task.progress), // Initial task progress data
+                                        backgroundColor: 'rgba(76, 175, 80, 0.5)', // Bar color
+                                        borderColor: 'rgba(76, 175, 80, 1)', // Border color
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true,
+                                            max: 100, // Max value for y-axis
+                                            ticks: {
+                                                color: '#e0e0e0' // Y-axis label color
+                                            }
+                                        },
+                                        x: {
+                                            ticks: {
+                                                color: '#e0e0e0' // X-axis label color
+                                            }
+                                        }
+                                    },
+                                    plugins: {
+                                        legend: {
+                                            display: true, // Show legend for bar chart
+                                            labels: {
+                                                color: '#e0e0e0' // Legend text color
+                                            }
+                                        },
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function(tooltipItem) {
+                                                    return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+
+                            updateCategoryProgress(categoryElement, category.tasks);
+                            categoriesContainer.appendChild(categoryElement);
+                        });
+                    }
+
+                    renderCategories();
+                </script>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
